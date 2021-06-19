@@ -1,0 +1,43 @@
+{
+  "name": "typescript-package-template",
+  "version": "1.0.0",
+  "description": "A template for building TypeScript packages that will be published to npm.",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "lint": "eslint src --max-warnings=0 --ext=.ts",
+    "test": "jest"
+  },
+  "files": [
+    "dist"
+  ],
+  "author": "",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/awohletz/typescript-package-template"
+  },
+  "devDependencies": {
+    "@types/jest": "^26.0.23",
+    "@typescript-eslint/eslint-plugin": "^4.27.0",
+    "@typescript-eslint/parser": "^4.27.0",
+    "eslint": "^7.29.0",
+    "eslint-plugin-jest": "^24.3.6",
+    "husky": "^6.0.0",
+    "jest": "^27.0.4",
+    "lint-staged": "^11.0.0",
+    "ts-jest": "^27.0.3",
+    "typescript": "^4.3.4"
+  },
+  "lint-staged": {
+    "src/**/!(*.d).ts": [
+      "npm run lint"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm test"
+    }
+  }
+}
